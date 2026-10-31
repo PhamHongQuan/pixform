@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Pixform — Chuyển định dạng ảnh</title>
+    <meta name="description" content="Chuyển ảnh PNG, JPG, WebP, AVIF, HEIC, GIF, BMP, ICO, TIFF, SVG sang định dạng khác ngay trên trình duyệt. Không tải file lên máy chủ." />
+    <script>
+      // Apply the theme before first paint to avoid a flash (kept in sync by src/lib/theme.ts).
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem('pixform-theme'); } catch (e) {}
+        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
